@@ -16,3 +16,12 @@ window.addEventListener('load', function () {
     });
 });
 
+
+window.addEventListener('load', function (){
+    const swiper = new Swiper('.swiper-desktop', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});

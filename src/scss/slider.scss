@@ -1,0 +1,132 @@
+.slider {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: transparent url('../images/slider-banner.png') no-repeat center center;
+  background-size: cover;
+
+  &__bg {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(to top, #272729, #161618);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.9;
+  }
+
+  &__slide-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 77px 70px;
+    justify-content: space-between;
+    @media (min-width: $desktop-min) {
+      padding: 77px 147px;
+    }
+
+  }
+
+  &__slide-img {
+    width: 46%;
+
+
+    &:nth-child(1) {
+      margin-bottom: 30px;
+      margin-right: 5px;
+      @media (min-width: $desktop-min) {
+        margin-bottom: 74px;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-bottom: 30px;
+      @media (min-width: $desktop-min) {
+        margin-bottom: 74px;
+      }
+    }
+
+    &:nth-child(3) {
+      margin-right: 5px;
+    }
+  }
+
+  &__slide-img-text {
+    position: relative;
+  }
+  &__text-wrap {
+    color: $mainColor;
+    position: absolute;
+    top: 0;
+    font-size: 18px;
+    text-align: right;
+    padding: 20px;
+    line-height: 1.4;
+    @media (min-width: $desktop-min) {
+      padding: 30px;
+    }
+
+    @media (min-width: $wideScreen-min) {
+      font-size: 22px;
+      padding: 50px 36px 31px 38px;
+    }
+
+    @media (min-width: $wideScreen-xl) {
+      line-height: 1.63;
+      font-size: 24.5px;
+      padding: 65px 36px 31px 38px;
+    }
+  }
+
+  h3 {
+    font-weight: 900;
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: $accentColor;
+
+  &:after {
+    font-size: 60px;
+  }
+}
+
+.swiper-button-next, {
+  right: 20px;
+  @media (min-width: $desktop-min) {
+    right: 52px;
+  }
+}
+
+
+.swiper-button-prev {
+  left: 20px;
+  @media (min-width: $desktop-min) {
+    left: 52px;
+  }
+}
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+  opacity: 1;
+}
