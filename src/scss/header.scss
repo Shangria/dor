@@ -1,0 +1,126 @@
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 15px;
+    @media (min-width: $tablet-min) {
+      align-items: center;
+      padding: 37px;
+    }
+  }
+
+  &__logo {
+    width: 50%;
+    @media (min-width: $tablet-min) {
+      width: 202px;
+      height: 73px;
+    }
+  }
+
+  &__link {
+    color: $mainColor;
+    font-size: 25px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  &__menu {
+    display: none;
+    width: 505px;
+    justify-content: space-between;
+    @media (min-width: $tablet-min) {
+      display: flex;
+    }
+  }
+
+
+  &__mobile-menu {
+    height: 100vh;
+    flex-direction: column;
+    width: 80%;
+    background-color: $mainColor;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition: 0.2s linear;
+    @media (min-width: $tablet-min) {
+      display: none;
+    }
+
+    &.header__menu_active {
+      transform: translateX(0);
+    }
+
+    a {
+      font-size: 25px;
+      color: $dark;
+      font-weight: 900;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__mobile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 150px;
+    padding-right: 50px;
+  }
+
+  &__hamburger {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    background-color: transparent;
+    @media (min-width: $tablet-min) {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__hamburger-title {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+    background-color: $accentColor;
+
+    &:nth-of-type(2) {
+      top: calc(50% + 11px);
+    }
+
+    &:nth-of-type(3) {
+      top: calc(50% - 12px);
+    }
+  }
+
+  &__mobile-btn {
+    top: 20px;
+  }
+
+  #header__hamburger-sub {
+    .header__hamburger-title {
+      background-color: $dark;
+    }
+  }
+
+  &_hide-hamburger {
+    display: none;
+  }
+
+  &_active-hamburger {
+    display: block;
+  }
+}

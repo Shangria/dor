@@ -1,0 +1,31 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $mainFont;
+  font-size: 27.5px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  @media screen and(min-width: $tablet-min) {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  display: inline-block;
+  cursor: pointer;
+}

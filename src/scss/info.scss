@@ -1,0 +1,40 @@
+.info {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(5, 5, 5, 0.6951155462184874) 0%, rgba(1, 1, 1, 0.9023984593837535) 100%),
+  url("../img/info-banner.png") center center no-repeat;
+  background-size: 100%;
+
+  &__container {
+    display: flex;
+    padding: 235px 86px 222px 87px;
+    margin: 0 auto;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    max-width: 326px;
+    max-height: 440px;
+    display: flex;
+    border: solid 4px $accentColor;
+    margin-left: 50px;
+  }
+
+  h2 {
+    font-size: 35px;
+    font-weight: 900;
+    line-height: 1.23;
+    text-align: right;
+    color: $accentColor;
+    padding-top: 44px;
+  }
+
+  p {
+    font-size: 26px;
+    line-height: 1.65;
+    text-align: right;
+    color: $mainColor;
+    padding-bottom: 48px;
+  }
+}
