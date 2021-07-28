@@ -187,9 +187,78 @@
         <div class="swiper-button-next"></div>
     </div>
 </section>
+<footer class="form">
+    <div class="form__container container">
+        <div class="form__img">
+            <img src="images/img-form.png" alt="devices">
+        </div>
+        <div class="form__wrap">
+            <h3 dir="rtl" class="form__title">
+                תשאירו פרטים והשאר עלי
+            </h3>
+            <p dir="rtl" class="form__text">
+                מאוישות שוגרה הייתה היא יורי לחזור החל חללית
+                לבצע ואילו, כגון שביצעו המאה השנייה לחקור חלליות
+                מחקר ניווט מעבורות ספוטניק.
+            </p>
 
+            <div class="form__box" id="form">
+                <form
+                        action="send.php"
+                        method="POST"
+                        id="from"
+                >
+
+                    <input
+                            type="tel"
+                            class="form__input"
+                            placeholder="טלפון"
+                            dir="rtl"
+                            name="user-tel"
+                            required
+                    />
+
+                    <input
+                            type="text"
+                            class="form__input"
+                            placeholder=" שם"
+                            dir="rtl"
+                            name="user-name"
+                            required
+                    />
+
+
+                    <input
+                            type="email"
+                            class="form__input"
+                            placeholder="דוא“ל"
+                            dir="rtl"
+                            name="user-email"
+                            required
+                    />
+
+                    <textarea
+                            class="form__textarea"
+                            dir="rtl"
+                            id="msg"
+                            name="user_message"
+                            placeholder="ספר/י על עצמך"
+                    ></textarea>
+
+                    <input
+                            class="form__input form__input_submit"
+                            type="submit"
+                            value="שליחה "
+                    />
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
