@@ -1,18 +1,1 @@
-window.addEventListener('load', function () {
-
-    const hamburgerMain = document.getElementById('header__hamburger-main');
-    const hamburgerSub = document.getElementById('header__hamburger-sub');
-    const headerMenu = document.getElementById('mobile-menu');
-
-    hamburgerMain.addEventListener('click', () => {
-        hamburgerMain.classList.add('header_hide-hamburger');
-        headerMenu.classList.add('header__menu_active');
-    });
-
-
-    hamburgerSub.addEventListener('click', () => {
-        hamburgerMain.classList.remove('header_hide-hamburger');
-        headerMenu.classList.remove('header__menu_active');
-    });
-});
-
+"use strict";window.addEventListener("load",(function(){var e=document.getElementById("header__hamburger-main"),d=document.getElementById("header__hamburger-sub"),t=document.getElementById("mobile-menu");e.addEventListener("click",(function(){e.classList.add("header_hide-hamburger"),t.classList.add("header__menu_active")})),d.addEventListener("click",(function(){e.classList.remove("header_hide-hamburger"),t.classList.remove("header__menu_active")}))}));

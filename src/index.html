@@ -6,34 +6,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <header class="header">
     <div class="header__container container">
         <div class="header__logo">
-            <img src="img/logo.png" alt="logo">
+            <img src="images/logo.png" alt="logo">
         </div>
 
         <nav class="header__nav">
             <ul class="header__menu">
                 <li class="header__item">
-                    <a href="#" class="header__link">
+                    <a dir="rtl" href="#" class="header__link">
                         צור קשר
                     </a>
                 </li>
                 <li class="header__item">
-                    <a href="#" class="header__link">
+                    <a dir="rtl" href="#" class="header__link">
                         פרוייקטים
                     </a>
                 </li>
                 <li class="header__item">
-                    <a href="#" class="header__link">
+                    <a dir="rtl" href="#" class="header__link">
                         מי אני
                     </a>
                 </li>
                 <li class="header__item">
-                    <a href="#" class="header__link">
+                    <a dir="rtl" href="#" class="header__link">
                         דף הבית
                     </a>
                 </li>
@@ -49,31 +51,29 @@
 
         <!-- mobile menu -->
         <nav class="header__mobile-menu" id="mobile-menu">
-
             <button class="header__mobile-btn header__hamburger" id="header__hamburger-sub">
                 <span class="header__hamburger-title"></span>
                 <span class="header__hamburger-title"></span>
                 <span class="header__hamburger-title"></span>
             </button>
-
             <ul class="header__mobile-container">
                 <li class="header__mobile-item">
-                    <a href="#" class="header__mobile-link">
+                    <a dir="rtl" href="#" class="header__mobile-link">
                         צור קשר
                     </a>
                 </li>
                 <li class="header__mobile-item">
-                    <a href="#" class="header__mobile-link">
+                    <a dir="rtl" href="#" class="header__mobile-link">
                         פרוייקטים
                     </a>
                 </li>
                 <li class="header__mobile-item">
-                    <a href="#" class="header__mobile-link">
+                    <a dir="rtl" href="#" class="header__mobile-link">
                         מי אני
                     </a>
                 </li>
                 <li class="header__mobile-item">
-                    <a href="#" class="header__mobile-link">
+                    <a dir="rtl" href="#" class="header__mobile-link">
                         דף הבית
                     </a>
                 </li>
@@ -82,42 +82,47 @@
         <!-- mobile menu -->
     </div>
 </header>
-
 <section class="hero">
     <div class="hero__container container">
         <div class="hero__img">
-            <img src="img/hero.png" alt="hero">
+            <img src="images/hero.png" alt="hero">
         </div>
         <div class="hero__text">
-            <h1>כותרת כותרת כורתר</h1>
-            <p>מאוישות שוגרה הייתה היא יורי לחזור החל חללית
+            <h1 dir="rtl">כותרת כותרת כורתר</h1>
+            <p dir="rtl"> מאוישות שוגרה הייתה היא יורי לחזור החל חללית
                 לבצע ואילו, כגון שביצעו המאה השנייה לחקור חלליות
-                מחקר ניווט מעבורות ספוטניק.</p>
+                מחקר ניווט מעבורות ספוטניק. </p>
         </div>
     </div>
     <a class="hero__arrow" href="#">
-        <img src="img/arrow.png" alt="arrow">
+        <img src="images/arrow.png" alt="arrow">
     </a>
 </section>
 
 <section class="info">
-    <div class="info__container containerl">
+    <div class="info__bg"></div>
+    <div class="info__container container">
         <div class="info__text-wrap">
-            <h2>שלום חברים אני דור.</h2>
-            <p>
+            <h2 dir="rtl">שלום חברים אני דור.</h2>
+            <p dir="rtl">
                 יזם ויועץ עסקי לסטארטפים. אני נושם סטארטפים. תביאו לי רעיון לאפליקציה ולאחר
                 כמה דקות אחדות רעיונות טכנולוגיים יזרמו לי איך לשפר אותו,
                 איזה פיצ'רים אפשר להוסיף, מה צריך להוריד והכי חשוב כמה ואיך לעשות ממנו כסף.
             </p>
-            <p>
+            <p dir="rtl">
                 אני מציע לך שעה של שיחה אחד על אחד איתי שבסופו תקבל מסמך מסודר ללא עלות.
                 למה ללא עלות? כי אני רוצה להתמקצע בתחום הייעוץ עסקי. ככה שאין לך מה להפסיד.
-                יום אחד אני אתחיל לגבות :)</p>
+                יום אחד אני אתחיל לגבות :)
+            </p>
         </div>
-        <div class="info__img">
-            <img src="img/info-f.png" alt="men">
-        </div>
+        <picture class="info__img">
+            <source srcset=images/s-info.png media="(max-width: 768px)">
+            <img src="images/info-f.png" alt="men">
+        </picture>
     </div>
+</section>
+<section class="slider">
+
 </section>
 <script type="text/javascript" src="./js/hamburger.js"></script>
 </body>

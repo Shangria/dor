@@ -1,147 +1,178 @@
-let project_folder= "dist";
-let source_folder = "src";
+'use strict';
 
-let fs = require('fs');
+var gulp = require('gulp'),
+    watch = require('gulp-watch'),
+    prefixer = require('gulp-autoprefixer'),
+    terser  = require('gulp-terser'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    // rigger = require('gulp-rigger'),
+    fileinclude = require('gulp-file-include'),
+    cssmin = require('gulp-clean-css'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant'),
+    rimraf = require('rimraf'),
+    browserSync = require("browser-sync"),
+    reload = browserSync.reload;
+    const babel = require('gulp-babel')
 
-let path = {
-  build: {
-    html: project_folder + "/",
-    css: project_folder +  "/css/",
-    js: project_folder + "/js/",
-    img: project_folder + "/img/",
-    fonts: project_folder + "/fonts/",
-  },
-  src: {
-    html: [source_folder + "/*.html", "!"+source_folder + "/_*.html"],
-    css: [source_folder +  "/scss/main.scss", "/scss/*.css"],  // другие файлы копироваться не будут
-    js: source_folder + "/js/**/*.js",
-    img: source_folder + "/img/**/*.{jpeg,jpg,png,svg,gif,ico,webp}",
-    fonts: source_folder + "/fonts/**/*",
-  }, 
-  watch: {
-    html: source_folder + "/**/*.html",
-    css: source_folder +  "/scss/**/*.scss",
-    js: source_folder + "/js/*.js",
-    img: source_folder + "/img/**/*.{jpeg,jpg,png,svg,gif,ico,webp}"
-  },
-  clean: "./" + project_folder + "/"
-}
+    var path = {
+        build: { //Тут мы укажем куда складывать готовые после сборки файлы
+          html: 'dist/',
+          js: 'dist/js/',
+          css: 'dist/css/',
+          img: 'dist/images/',
+          fonts: 'dist/fonts/'
+        },
+        src: { //Пути откуда брать исходники
+          html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+          js: ['node_modules/swiper/js/swiper.min.js',
+          'src/js/*.js'
+          ],//В стилях и скриптах нам понадобятся только main файлы
+          style: 'src/scss/main.scss',
+          img: 'src/images/**/*.*', //Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+          fonts: 'src/fonts/**/*.*'
+        },
+        watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+          html: 'src/**/*.html',
+          js: 'src/js/**/*.js',
+          style: 'src/scss/**/*.scss',
+          img: 'src/images/**/*.*',
+          fonts: 'src/fonts/**/*.*'
+        },
+        clean: './dist'
+  };
 
-let { src, dest } = require('gulp'),
-  gulp = require('gulp'),
-  browsersync = require("browser-sync").create(),
-  fileinclude = require("gulp-file-include"),
-  del = require("del"),
-  scss = require("gulp-sass"),
-  autoprefixer = require("gulp-autoprefixer"), //добавляет префиксы
-  group_media = require("gulp-group-css-media-queries"),  // групирирует медиа запросы
-  clean_css = require("gulp-clean-css"), //оптимизирует файл
-  rename = require("gulp-rename"),  //переименование файла
-  uglify = require("gulp-uglify-es").default,
-  fonter = require("gulp-fonter");
+  var config = {
+      server: {
+          baseDir: "./dist"
+      },
+      tunnel: false,
+      host: 'localhost',
+      port: 9000,
+      logPrefix: "Frontend"
+};
 
+gulp.task('html:build', async function () {
+  gulp.src(path.src.html) //Выберем файлы по нужному пути
+      // .pipe(rigger()) //Прогоним через rigger
+      .pipe(fileinclude()) //Прогоним через fileinclude
+      .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
+      .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+});
 
+gulp.task('js:build', async function () {
+  gulp.src(path.src.js) //Найдем наш main файл
+      // .pipe(rigger()) //Прогоним через rigger
+      .pipe(fileinclude()) //Прогоним через fileinclude
+      // .pipe(sourcemaps.init()) //Инициализируем sourcemap
+      .pipe(babel({
+        presets: ['@babel/env']
+    }))
+      .pipe(terser()) //Сожмем наш js 
 
+      // .pipe(sourcemaps.write()) //Пропишем карты
+      .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
+      .pipe(reload({stream: true})); //И перезагрузим сервер
+      
+});
 
-function browserSync(params) {
-  browsersync.init({
-    server: {
-      baseDir:  "./" + project_folder + "/"
-    },
-    port:3000,
-    notify: false   //увидомления о обновлении браузера
-  })
-}
+gulp.task('style:build', async function () {
+    gulp.src(path.src.style) //Выберем наш main.scss
+        // .pipe(sourcemaps.init()) //То же самое что и с js
+        .pipe(sass().on('error', sass.logError)) //Скомпилируем
+        .pipe(prefixer('last 2 versions')) //Добавим вендорные префиксы
+        .pipe(cssmin()) //Сожмем
+        // .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.css)) //И в build
+        .pipe(reload({stream: true}));
+});
 
-function html() {
-  return src(path.src.html) //путь к исходным файлам
-    .pipe(fileinclude()) //собирает файли
-    .pipe(dest(path.build.html)) //в .pipe пишем команды для gulp
-    .pipe(browsersync.stream()) //обновление страницы
-}
-
-function css() {
-  return src(path.src.css) //путь к исходным файлам
-    .pipe(
-      scss({
-        outputStyle: "expanded"  // что бы файл css не сжимался
-      })
-    )
-    .pipe(
-      group_media()
-    )
-    .pipe(
-      autoprefixer({  // настройки 
-          overrideBrowserslist: ["last 5 versions"],  //поддержка браузеров
-          cascade: true //стиль написание префиксов каскад
-      })
-    )
-    .pipe(dest(path.build.css)) //(выгрузка файла перез сжиманием и переименованием)
-    .pipe(browsersync.stream())
-    .pipe(clean_css()) //сжимаем файл
-    .pipe(
-      rename({
-        extname: ".min.css" //переименовываем файл
-      })
-    )
-    .pipe(dest(path.build.css)) //в .pipe пишем команды для gulp (выгрузка)
-    .pipe(browsersync.stream()) //обновление страницы
-}
-
-function js() {
-  return src(path.src.js) //путь к исходным файлам
-    .pipe(fileinclude()) //собирает файли
-    .pipe(dest(path.build.js)) //(выгрузка файла перез сжиманием и переименованием)
-    .pipe(uglify()) //сжимаем файл
-    .pipe(
-      rename({
-        extname: ".min.js" //переименовываем файл
-      })
-    )
-    .pipe(dest(path.build.js)) //в .pipe пишем команды для gulp
-    .pipe(browsersync.stream()) //обновление страницы
-}
-
-function images() {
-  return src(path.src.img) //путь к исходным файлам
-    .pipe(dest(path.build.img))
-    .pipe(src(path.src.img))
-    .pipe(dest(path.build.img)) //в .pipe пишем команды для gulp
-    .pipe(browsersync.stream()) //обновление страницы
-}
-
-// function fonts(){
-//   src(path.src.fonts)
-//     .pipe(dest(path.build.fonts));
-// };
-
-function cb() { }
-
-function watchFiles(params) {  // слежка за файлами
-  gulp.watch([path.watch.html], html);
-  gulp.watch([path.watch.css], css);
-  gulp.watch([path.watch.js], js);
-  gulp.watch([path.watch.img], images);
-}
-
-// удаление папки dist
-function clean(params) {
-  return del(path.clean);
-}
-// подружить Gulp, что бы он их понимал, после удаление выполняеться html
-let build = gulp.series(clean, gulp.parallel(js, css, html, images));
+gulp.task('fonts:build', async function() {
+    gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.build.fonts))
+});
 
 
-// проверка работоспосбности
-let watch = gulp.parallel(build, watchFiles, browserSync); // открытие файлов одновременно
+//compressing all images
 
-// подружить Gulp с новыми переменными, что бы он их понимал
-// exports.fontsStyle = fontsStyle;
-// exports.fonts = fonts;
-exports.images = images;
-exports.js = js;
-exports.css = css;
-exports.html = html;
-exports.build =  build;
-exports.watch = watch;
-exports.default = watch; // при запуске Gulp выполняеться данная переменная
+var cache = require('gulp-cache');
+var imagemin = require('gulp-imagemin');
+var imageminPngquant = require('imagemin-pngquant');
+var imageminZopfli = require('imagemin-zopfli');
+var imageminMozjpeg = require('imagemin-mozjpeg'); //need to run 'brew install libpng'
+var imageminGiflossy = require('imagemin-giflossy');
+
+gulp.task('image:build', async function() {
+  return gulp.src(path.src.img)
+      .pipe(cache(imagemin([
+          //png
+          imageminPngquant({
+              speed: 1,
+              quality: [0.95, 1] //lossy settings
+          }),
+          imageminZopfli({
+              more: true
+              // iterations: 50 // very slow but more effective
+          }),
+          //gif
+          // imagemin.gifsicle({
+          //     interlaced: true,
+          //     optimizationLevel: 3
+          // }),
+          //gif very light lossy, use only one of gifsicle or Giflossy
+          imageminGiflossy({
+              optimizationLevel: 3,
+              optimize: 3, //keep-empty: Preserve empty transparent frames
+              lossy: 2
+          }),
+          //svg
+          imagemin.svgo({
+              plugins: [{
+                  removeViewBox: false
+              }]
+          }),
+          //jpg lossless
+          imagemin.jpegtran({
+              progressive: true
+          }),
+          //jpg very light lossy, use vs jpegtran
+          imageminMozjpeg({
+              quality: 90
+          })
+      ])))
+      .pipe(gulp.dest(path.build.img)); //И бросим в build
+});
+
+gulp.task('build', gulp.series( 
+  'html:build',
+  'js:build',
+  'style:build',
+  'fonts:build',
+  'image:build'
+));
+
+gulp.task('watch', function(){
+  watch([path.watch.html], function(event, cb) {
+    gulp.parallel('html:build');
+  });
+});
+
+gulp.task('watch', function(done){
+  gulp.watch([path.watch.html], gulp.series('html:build')),
+  gulp.watch([path.watch.style], gulp.series('style:build')),
+  gulp.watch([path.watch.js], gulp.series('js:build')),
+  gulp.watch([path.watch.img], gulp.series('image:build')),
+  gulp.watch([path.watch.fonts], gulp.series('fonts:build')),
+  done();
+});
+
+gulp.task('webserver', function () {
+  browserSync(config);
+});
+
+gulp.task('clean', function (cb) {
+  rimraf(path.clean, cb);
+});
+
+gulp.task('default', gulp.parallel('build', 'webserver', 'watch'));
