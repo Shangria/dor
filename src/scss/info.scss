@@ -63,7 +63,7 @@
     }
 
     @media (min-width: $desktop-min) {
-      padding-bottom: 10px;
+      padding-bottom: 0px;
       text-align: right;
     }
 
@@ -71,7 +71,6 @@
       padding-bottom: 25px;
 
       @media (min-width: $desktop-min) {
-        padding-bottom: 48px;
       }
     }
   }
@@ -83,6 +82,7 @@
     color: $mainColor;
     margin: 0 auto;
     @media (min-width: $mobile-max) {
+      padding-top: 20px;
       width: 80%;
       font-size: 26px;
     }
