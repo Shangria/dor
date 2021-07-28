@@ -25,6 +25,9 @@
   &__img {
     width: 65%;
     display: flex;
+    @media (min-width: $tablet-min) {
+      width: 50%;
+    }
 
     @media (min-width: $desktop-min) {
       width: 50%;
@@ -40,6 +43,9 @@
   &__wrap {
     padding-top: 25px;
     width: 100%;
+    @media (min-width: $tablet-min) {
+      width: 70%;
+    }
     @media (min-width: $desktop-min) {
       width: 50%;
       padding-top: 0;
@@ -86,13 +92,19 @@
 
   &__input {
     background-color: $light;
-    padding: 15px;
+    padding: 5px;
     border-bottom: 4px solid $accentColor;
     margin-bottom: 17px;
+    @media (min-width: $desktop-min) {
+      padding: 15px;
+    }
 
     &::placeholder {
       color: $accentColor;
-      font-size: 20px;
+      font-size: 16px;
+      @media (min-width: $desktop-min) {
+        font-size: 20px;
+      }
     }
 
     &:nth-child(1) {
@@ -115,17 +127,23 @@
   }
 
   &__textarea {
-    padding: 15px;
+    padding: 5px;
     width: 100%;
     min-height: 215px;
     height: 100%;
     margin-bottom: 17px;
     border-bottom: 4px solid $accentColor;
     resize: none;
+    @media (min-width: $desktop-min) {
+      padding: 15px;
+    }
 
     &::placeholder {
       color: $accentColor;
-      font-size: 20px;
+      font-size: 16px;
+      @media (min-width: $desktop-min) {
+        font-size: 20px;
+      }
     }
   }
 
