@@ -27,6 +27,19 @@ window.addEventListener('load', function () {
 });
 
 
+window.addEventListener('load', function () {
+    const links = document.querySelectorAll('.header__item a');
+
+    links.forEach(el => {
+        el.addEventListener('click', e => {
+            links.forEach(el => {
+                el.classList.remove('active');
+            });
+            e.target.classList.add('active');
+        });
+    });
+});
+
 $(document).ready(function () {
 
     //form submit

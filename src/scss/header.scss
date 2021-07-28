@@ -29,6 +29,10 @@
     font-size: 25px;
     line-height: 1.6;
     text-align: center;
+    &.active {
+      color: $accentColor;
+      border-bottom: 5px solid $accentColor;
+    }
   }
 
   &__menu {
@@ -69,6 +73,7 @@
       color: $dark;
       font-weight: 900;
       padding-bottom: 20px;
+
     }
   }
 
