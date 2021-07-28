@@ -10,13 +10,15 @@
     padding: 25px 15px;
     @media (min-width: $tablet-min) {
       align-items: center;
-      padding: 37px;
+      padding: 15px 40px;
     }
   }
 
   &__logo {
     width: 50%;
+
     @media (min-width: $tablet-min) {
+      padding-top: 25px;
       width: 202px;
       height: 73px;
     }
