@@ -29,9 +29,11 @@
     font-size: 25px;
     line-height: 1.6;
     text-align: center;
+    transition: all .3s linear;
     &.active {
       color: $accentColor;
-      border-bottom: 5px solid $accentColor;
+      border-bottom: 4px solid $accentColor;
+      border-radius: 2px;
     }
   }
 
