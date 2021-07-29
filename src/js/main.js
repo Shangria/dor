@@ -133,21 +133,12 @@
 
         mobileContainerImages.forEach(function (img, indexImg) {
             img.dataset.id = indexImg;
-
             img.addEventListener("click", function (e) {
-
                 idSlide = Number(img.getAttribute('data-id'));
-
                 dataModal.forEach(function (dataSlide, i) {
                     idModal = Number(dataSlide.id);
-
-                    console.log('idModal', typeof idModal);
-                    console.log('idSlide', typeof idSlide);
                     if (idModal === idSlide) {
-                        console.log('true');
                         renderPopup(dataSlide);
-                    } else {
-                        console.log('false');
                     }
                 })
             });
@@ -156,22 +147,31 @@
 
         function renderPopup(object) {
             const modalSlid = document.getElementById("modal-slid");
-            const popupBox = document.createElement('li');
-            popupBox.classList.add('slider__modal');
+            const popupBg = document.createElement('div');
+            popupBg.classList.add('slider__bg');
+            modalSlid.appendChild(popupBg);
+            const popupBox = document.createElement('div');
+            popupBox.classList.add('slider__modal-window');
             modalSlid.appendChild(popupBox);
 
             popupBox.innerHTML = `
-                    <div class="slider__close" id="popup-close">x</div> 
-                    <h3 dir="rtl" class="slider__title">
-                        ${object.title}
-                    </h3>
-                    <img src=${object.src} alt=${object.alt}>
-                    <p dir="rtl" class="slide__text">
-                       ${object.text}
-                    </p>`
+                    <div class="slider__modal-wrap">
+                        <div class="slider__close" id="popup-close"></div> 
+                         <h3 dir="rtl">
+                               ${object.title}
+                        </h3>
+                         <div class="slider__modal-img-wrap">
+                            <img src=${object.src} alt=${object.alt}>        
+                         </div>
+                          <p dir="rtl">
+                            ${object.text}
+                          </p>
+                    </div>
+                   `
 
             const btnClose = document.getElementById('popup-close');
             btnClose.addEventListener('click', function () {
+                popupBg.remove();
                 popupBox.remove();
             });
         }
