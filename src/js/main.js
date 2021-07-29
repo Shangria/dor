@@ -147,9 +147,6 @@
 
         function renderPopup(object) {
             const modalSlid = document.getElementById("modal-slid");
-            const popupBg = document.createElement('div');
-            popupBg.classList.add('slider__bg');
-            modalSlid.appendChild(popupBg);
             const popupBox = document.createElement('div');
             popupBox.classList.add('slider__modal-window');
             modalSlid.appendChild(popupBox);
@@ -171,7 +168,6 @@
 
             const btnClose = document.getElementById('popup-close');
             btnClose.addEventListener('click', function () {
-                popupBg.remove();
                 popupBox.remove();
             });
         }
