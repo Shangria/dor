@@ -43,15 +43,24 @@
 (function () {
     window.addEventListener('load', function () {
         const links = document.querySelectorAll('.header__item a');
+        const linksMobile = document.querySelectorAll('.header__mobile-item a');
+        const headerMenuActive = document.querySelectorAll('.header__menu_active');
 
-        links.forEach(el => {
-            el.addEventListener('click', e => {
-                links.forEach(el => {
-                    el.classList.remove('active');
+        addActive(links);
+        addActive(linksMobile);
+
+        function addActive(elements) {
+            elements.forEach(el => {
+                el.addEventListener('click', e => {
+                    elements.forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    e.target.classList.add('active');
                 });
-                e.target.classList.add('active');
             });
-        });
+        }
+
+
     });
 })();
 
@@ -146,10 +155,10 @@
 
 
         function renderPopup(object) {
-            const header=document.querySelector('header');
-            const body=document.querySelector('body');
-            header.style.display="none";
-            body.style.overflow="hidden";
+            const header = document.querySelector('header');
+            const body = document.querySelector('body');
+            header.style.display = "none";
+            body.style.overflow = "hidden";
             const modalSlid = document.getElementById("modal-slid");
             const popupBox = document.createElement('div');
             popupBox.classList.add('slider__modal-window');
@@ -173,8 +182,8 @@
             const btnClose = document.getElementById('popup-close');
             btnClose.addEventListener('click', function () {
                 popupBox.remove();
-                header.style.display="block";
-                body.style.overflow="auto";
+                header.style.display = "block";
+                body.style.overflow = "auto";
             });
         }
     });

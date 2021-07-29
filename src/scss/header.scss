@@ -36,6 +36,13 @@
       border-radius: 2px;
     }
   }
+  &__mobile-link{
+    &.active {
+      color: $accentColor;
+      border-bottom: 4px solid $accentColor;
+      border-radius: 2px;
+    }
+  }
 
   &__menu {
     display: none;
