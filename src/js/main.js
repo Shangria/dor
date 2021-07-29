@@ -121,7 +121,7 @@
             title: "Lorem ipsum",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
                 "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            src: "images/slider2-4.png",
+            src: "images/slider2-4.jpg",
             alt: "slide",
         },
     ];
@@ -146,6 +146,10 @@
 
 
         function renderPopup(object) {
+            const header=document.querySelector('header');
+            const body=document.querySelector('body');
+            header.style.display="none";
+            body.style.overflow="hidden";
             const modalSlid = document.getElementById("modal-slid");
             const popupBox = document.createElement('div');
             popupBox.classList.add('slider__modal-window');
@@ -169,6 +173,8 @@
             const btnClose = document.getElementById('popup-close');
             btnClose.addEventListener('click', function () {
                 popupBox.remove();
+                header.style.display="block";
+                body.style.overflow="auto";
             });
         }
     });
