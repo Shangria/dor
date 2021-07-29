@@ -24,6 +24,15 @@ window.addEventListener('load', function () {
             prevEl: '.swiper-button-prev',
         },
     });
+
+
+    const swiperMobile = new Swiper('.swiper-mobile', {
+
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+    });
 });
 
 
@@ -39,6 +48,8 @@ window.addEventListener('load', function () {
         });
     });
 });
+
+
 
 $(document).ready(function () {
 
