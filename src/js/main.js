@@ -44,7 +44,6 @@
     window.addEventListener('load', function () {
         const links = document.querySelectorAll('.header__item a');
         const linksMobile = document.querySelectorAll('.header__mobile-item a');
-        const headerMenuActive = document.querySelectorAll('.header__menu_active');
 
         addActive(links);
         addActive(linksMobile);
@@ -55,12 +54,15 @@
                     elements.forEach(el => {
                         el.classList.remove('active');
                     });
+                    const headerMenuActive = document.getElementById('mobile-menu');
+                    const headerHamburger = document.getElementById('header__hamburger-main');
+                    headerMenuActive.classList.remove('header__menu_active');
+                    headerHamburger.classList.remove('header_hide-hamburger');
+
                     e.target.classList.add('active');
                 });
             });
         }
-
-
     });
 })();
 

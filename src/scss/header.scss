@@ -30,13 +30,15 @@
     line-height: 1.6;
     text-align: center;
     transition: all .3s linear;
+
     &.active {
       color: $accentColor;
       border-bottom: 4px solid $accentColor;
       border-radius: 2px;
     }
   }
-  &__mobile-link{
+
+  &__mobile-link {
     &.active {
       color: $accentColor;
       border-bottom: 4px solid $accentColor;
@@ -81,9 +83,12 @@
       font-size: 25px;
       color: $dark;
       font-weight: 900;
-      padding-bottom: 20px;
 
     }
+  }
+
+  &__mobile-item {
+    padding-bottom: 20px;
   }
 
   &__mobile-container {
