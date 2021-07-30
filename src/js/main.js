@@ -81,57 +81,57 @@
         },
         {
             id: 1,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקציית Direct",
+            text: " צופים בפרסומות של עסקים שונים ומתוגמלים בסכום כספי פר צפייה.\n" +
+                "                                מודעות ווידאו או מודעות תמונה. ",
             src: "images/slider1-4.png",
             alt: "slide",
         },
         {
             id: 2,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקציית Modeling",
+            text: " בוחרים את הבגדים החדשים בעזרת דוגמנים חיים.\n" +
+                "                                אפשר לראות היכן בסביבה שלכם ישנם דוגמנים אשר לובשים היום את בגדי המעצבים.\n" +
+                "                                קובעים פגישה עם הדוגמן וקונים דרכו במקום את הבגד דרך החנות איקומרס השונות.",
             src: "images/slider2-3.png",
             alt: "slide",
         },
         {
             id: 3,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקציית Kids",
+            text: "מוחביאים בפארקים ציבוריים שוברי הנחה לקנייה בחנויות צעצועים.\n" +
+                "                                על כל מטמון שהילד מוצא הוא יכול לקבל הנחה או מתנה. ",
             src: "images/slider2-1.png",
             alt: "slide",
         },
         {
             id: 4,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקצית Chefy",
+            text: " יוזר סורק בסופר מוצרי מזון והאפליקציה תציג לפניו רשימת מתכונים אפשריים עם אותו מוצר.",
             src: "images/slider1-1.png",
             alt: "slide",
         },
         {
             id: 5,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקציית AnySCAN",
+            text: "\n" +
+                " מאפשרת לכם לדלג על התור בחנויות השונות ולבצע את התשלום על כל פריט בצורה עצמאית.\n" +
+                "בוחרים את החנות בה אתם נמצאים, לסרוק את הברקודים על הפריטים ולשלם ישירות.",
             src: "images/slider1-3.png",
             alt: "slide",
         },
         {
             id: 6,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקצית RealLife",
+            text: " שולחים הודעה למי שמוצא חן בטווח עיין בבית קפה, ועוברים לדייט מיידי.",
             src: "images/slider2-2.png",
             alt: "slide",
         },
         {
             id: 7,
-            title: "Lorem ipsum",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n" +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            title: "אפליקצית FRDZ",
+            text: "עוקב אחרי הפעילות באינטרנט\n" +
+                "                                ובמדיה חברתית למציאת חברויות חדשות. ",
             src: "images/slider2-4.jpg",
             alt: "slide",
         },
