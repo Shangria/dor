@@ -5,13 +5,13 @@
         const hamburgerSub = document.getElementById('header__hamburger-sub');
         const headerMenu = document.getElementById('mobile-menu');
 
-        hamburgerMain.addEventListener('click', () => {
+        hamburgerMain.addEventListener('click', function () {
             hamburgerMain.classList.add('header_hide-hamburger');
             headerMenu.classList.add('header__menu_active');
         });
 
 
-        hamburgerSub.addEventListener('click', () => {
+        hamburgerSub.addEventListener('click', function () {
             hamburgerMain.classList.remove('header_hide-hamburger');
             headerMenu.classList.remove('header__menu_active');
         });
@@ -22,6 +22,7 @@
 (function () {
     window.addEventListener('load', function () {
         const swiper = new Swiper('.swiper-desktop', {
+            loop:true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -40,18 +41,32 @@
 })();
 
 
+(function (){
+    window.addEventListener('load', function (){
+        const linkArrow=document.getElementById('hero__arrow');
+        const linkToInfo=document.getElementById('link-to-info');
+        const linkToHero=document.getElementById('link-to-hero');
+
+        linkArrow.addEventListener('click', function (){
+            linkToInfo.classList.add('active');
+            linkToHero.classList.remove('active');
+        })
+    })
+})();
+
 (function () {
     window.addEventListener('load', function () {
         const links = document.querySelectorAll('.header__item a');
         const linksMobile = document.querySelectorAll('.header__mobile-item a');
 
+
         addActive(links);
         addActive(linksMobile);
 
         function addActive(elements) {
-            elements.forEach(el => {
-                el.addEventListener('click', e => {
-                    elements.forEach(el => {
+            elements.forEach( function (el) {
+                el.addEventListener('click', function (e) {
+                    elements.forEach(function (el) {
                         el.classList.remove('active');
                     });
                     const headerMenuActive = document.getElementById('mobile-menu');
@@ -189,6 +204,10 @@
             });
         }
     });
+})();
+
+(function (){
+
 })();
 
 (function () {

@@ -2,6 +2,7 @@
   width: 100%;
   position: fixed;
   z-index: 3;
+  background-image: linear-gradient(0deg, rgba(5,5,5,0.6783088235294117) 0%, rgba(1,1,1,0.7511379551820728) 100%);
 
   &__container {
     position: relative;
@@ -20,7 +21,6 @@
     @media (min-width: $tablet-min) {
       padding-top: 25px;
       width: 202px;
-      height: 73px;
     }
   }
 

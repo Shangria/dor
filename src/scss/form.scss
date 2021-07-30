@@ -37,7 +37,7 @@
     }
     @media (min-width: $wideScreen-min) {
       margin-right: 75px;
-
+      width: 50%;
     }
   }
 
@@ -158,5 +158,11 @@
     font-weight: 900;
     color: $light;
     padding: 8px;
+  }
+  img{
+    height: 100%;
+    @media (min-width: $desktop-min) {
+      height: auto;
+    }
   }
 }

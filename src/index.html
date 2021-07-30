@@ -6,8 +6,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
@@ -30,12 +28,12 @@
                     </a>
                 </li>
                 <li class="header__item">
-                    <a dir="rtl" href="#info" class="header__link">
+                    <a dir="rtl" href="#info" class="header__link" id="link-to-info">
                         מי אני
                     </a>
                 </li>
                 <li class="header__item">
-                    <a dir="rtl" href="#hero" class="header__link active">
+                    <a dir="rtl" href="#hero" class="header__link active" id="link-to-hero">
                         דף הבית
                     </a>
                 </li>
@@ -82,8 +80,7 @@
         <!-- mobile menu -->
     </div>
 </header>
-<section class="hero">
-    <a name="hero"></a>
+<section class="hero" id="hero">
     <div class="hero__container container">
         <div class="hero__img">
             <img src="images/hero.png" alt="hero">
@@ -95,12 +92,11 @@
                 מחקר ניווט מעבורות ספוטניק. </p>
         </div>
     </div>
-    <a class="hero__arrow">
+    <a class="hero__arrow"  href="#info" id="hero__arrow">
         <img src="images/arrow.png" alt="arrow">
     </a>
 </section>
-<section class="info">
-    <a name="info"></a>
+<section class="info" id="info">
     <div class="info__bg"></div>
     <div class="info__container container">
         <div class="info__text-wrap">
@@ -122,10 +118,9 @@
         </picture>
     </div>
 </section>
-<section class="slider">
-    <a name="slider"></a>
+<section class="slider" id="slider">
     <div class="slider__bg"></div>
-    <div id="modal-slid" >
+    <div id="modal-slid">
 
     </div>
 
@@ -284,8 +279,7 @@
     </div>
 </section>
 
-<footer class="form">
-    <a name="footer"></a>
+<section class="form" id="footer">
     <div class="form__container container">
         <div class="form__img">
             <img src="images/img-form.png" alt="devices">
@@ -352,7 +346,7 @@
             </div>
         </div>
     </div>
-</footer>
+</section>
 
 <script type="text/javascript" src="js/swiper.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
