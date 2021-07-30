@@ -4,6 +4,7 @@
   width: 100%;
   background: transparent url('../images/slider-banner.jpg') no-repeat center center;
   background-size: cover;
+  padding-top: 55px;
 
   &__bg {
     z-index: -1;
@@ -110,13 +111,13 @@
     padding: 77px 70px;
     justify-content: space-between;
     @media (min-width: $desktop-min) {
-      padding: 77px 147px;
+      padding: 95px 147px;
     }
 
   }
 
   &__slide-img {
-    width: 48%;
+    width: 46%;
 
     &:hover {
       .slider__text-wrap {
@@ -241,6 +242,7 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: $accentColor;
+  top: 49%;
 
   &:after {
     font-size: 60px;
@@ -250,7 +252,7 @@
 .swiper-button-next, {
   right: 20px;
   @media (min-width: $desktop-min) {
-    right: 52px;
+    right: 58px;
   }
 }
 
