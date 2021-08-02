@@ -7,6 +7,7 @@
 
         hamburgerMain.addEventListener('click', function () {
             hamburgerMain.classList.add('header_hide-hamburger');
+            headerMenu.classList.remove('header__menu_hide');
             headerMenu.classList.add('header__menu_active');
         });
 
@@ -14,6 +15,10 @@
         hamburgerSub.addEventListener('click', function () {
             hamburgerMain.classList.remove('header_hide-hamburger');
             headerMenu.classList.remove('header__menu_active');
+            headerMenu.classList.add('header__menu_hide');
+            setTimeout(function () {
+                headerMenu.classList.remove('header__menu_hide');
+            }, 1500)
         });
     });
 
@@ -22,7 +27,7 @@
 (function () {
     window.addEventListener('load', function () {
         const swiper = new Swiper('.swiper-desktop', {
-            loop:true,
+            loop: true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -41,13 +46,13 @@
 })();
 
 
-(function (){
-    window.addEventListener('load', function (){
-        const linkArrow=document.getElementById('hero__arrow');
-        const linkToInfo=document.getElementById('link-to-info');
-        const linkToHero=document.getElementById('link-to-hero');
+(function () {
+    window.addEventListener('load', function () {
+        const linkArrow = document.getElementById('hero__arrow');
+        const linkToInfo = document.getElementById('link-to-info');
+        const linkToHero = document.getElementById('link-to-hero');
 
-        linkArrow.addEventListener('click', function (){
+        linkArrow.addEventListener('click', function () {
             linkToInfo.classList.add('active');
             linkToHero.classList.remove('active');
         })
@@ -64,17 +69,19 @@
         addActive(linksMobile);
 
         function addActive(elements) {
-            elements.forEach( function (el) {
+            elements.forEach(function (el) {
                 el.addEventListener('click', function (e) {
                     elements.forEach(function (el) {
                         el.classList.remove('active');
                     });
                     const headerMenuActive = document.getElementById('mobile-menu');
                     const headerHamburger = document.getElementById('header__hamburger-main');
+
                     headerMenuActive.classList.remove('header__menu_active');
                     headerHamburger.classList.remove('header_hide-hamburger');
 
                     e.target.classList.add('active');
+
                 });
             });
         }
@@ -206,8 +213,18 @@
     });
 })();
 
-(function (){
+(function () {
+    window.addEventListener('load', function () {
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function () {
 
+            if (window.pageYOffset >= 1) {
+                header.classList.add('fixed');
+            } else if (window.pageYOffset < 1) {
+                header.classList.remove('fixed');
+            }
+        });
+    });
 })();
 
 (function () {
