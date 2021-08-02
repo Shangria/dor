@@ -1,6 +1,6 @@
 <?
 if ( (isset($_POST['user-name']) && $_POST['user-name']!="") && (isset($_POST['user-tel']) && $_POST['user-tel']!="") && (isset($_POST['user-email']) && $_POST['user-email']!="")&& (isset($_POST['user_message']) && $_POST['user_message']!="")  ){
-        $to = 'shangrialena@gmail.com';
+        $to = 'dor.aharonoff@gmail.com';
         $subject = 'Contact message from dor-landingpage site';
         $message = '
             <html>
