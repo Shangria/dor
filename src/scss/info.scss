@@ -31,6 +31,12 @@
     }
   }
 
+  &__text-wrap {
+    @media (min-width: $desktop-min) {
+      text-align: right;
+    }
+  }
+
   &__img {
     object-fit: contain;
     height: 100%;
@@ -80,8 +86,10 @@
     text-align: center;
     color: $mainColor;
     margin: 0 auto;
+
     @media (min-width: $mobile-max) {
       padding-top: 20px;
+      padding-bottom: 40px;
       width: 80%;
       font-size: 26px;
     }
@@ -89,6 +97,37 @@
     @media (min-width: $desktop-min) {
       width: auto;
       text-align: right;
+    }
+  }
+
+
+  &__download {
+    display: none;
+    @media (min-width: $desktop-min) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 10px 5px 10px 25px;
+    background-color: $accentColor;
+    color: $light;
+    font-size: 21.5px;
+    font-weight: 900;
+  }
+
+  &__img-download {
+    width: 24px;
+    height: 30px;
+    margin: 0 15px;
+
+
+    img {
+      object-fit: none;
     }
   }
 }
