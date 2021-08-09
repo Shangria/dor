@@ -1,4 +1,4 @@
-@keyframes header__visible{
+@keyframes header__visible {
   0% {
     visibility: hidden;
     opacity: 0;
@@ -40,7 +40,7 @@
 
   &.fixed {
     position: fixed;
-    background: linear-gradient(0deg, rgba(5,5,5,0.6783088235294117) 0%, rgba(1,1,1,0.7511379551820728) 100%);
+    background: linear-gradient(0deg, rgba(5, 5, 5, 0.6783088235294117) 0%, rgba(1, 1, 1, 0.7511379551820728) 100%);
     animation-name: header__visible;
   }
 
@@ -58,8 +58,8 @@
   &__logo {
     width: 50%;
     @media (min-width: $mobile-min) {
-     width: 30%;
-  }
+      width: 30%;
+    }
 
     @media (min-width: $tablet-min) {
       padding-top: 25px;
@@ -207,7 +207,8 @@
   &_active-hamburger {
     display: block;
   }
-  &_hide-body{
+
+  &_hide-body {
     overflow: hidden;
   }
 }
