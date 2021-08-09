@@ -4,17 +4,21 @@
         const hamburgerMain = document.getElementById('header__hamburger-main');
         const hamburgerSub = document.getElementById('header__hamburger-sub');
         const headerMenu = document.getElementById('mobile-menu');
+        const hideBody=document.querySelector('body');
 
         hamburgerMain.addEventListener('click', function () {
             hamburgerMain.classList.add('header_hide-hamburger');
             headerMenu.classList.remove('header__menu_hide');
             headerMenu.classList.add('header__menu_active');
+            hideBody.classList.add('header_hide-body');
         });
 
 
         hamburgerSub.addEventListener('click', function () {
             hamburgerMain.classList.remove('header_hide-hamburger');
             headerMenu.classList.remove('header__menu_active');
+            hideBody.classList.remove('header_hide-body');
+
             headerMenu.classList.add('header__menu_hide');
             setTimeout(function () {
                 headerMenu.classList.remove('header__menu_hide');
@@ -63,6 +67,7 @@
     window.addEventListener('load', function () {
         const links = document.querySelectorAll('.header__item a');
         const linksMobile = document.querySelectorAll('.header__mobile-item a');
+        const hideBody=document.querySelector('body');
 
 
         addActive(links);
@@ -78,6 +83,7 @@
                     const headerHamburger = document.getElementById('header__hamburger-main');
 
                     headerMenuActive.classList.remove('header__menu_active');
+                    hideBody.classList.remove('header_hide-body');
                     headerHamburger.classList.remove('header_hide-hamburger');
 
                     e.target.classList.add('active');

@@ -13,7 +13,7 @@
 
 @keyframes slideLeft {
   0% {
-    transform: translateX(150%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(0%);
@@ -25,7 +25,7 @@
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(150%);
+    transform: translateX(100%);
   }
 }
 
@@ -57,6 +57,9 @@
 
   &__logo {
     width: 50%;
+    @media (min-width: $mobile-min) {
+     width: 30%;
+  }
 
     @media (min-width: $tablet-min) {
       padding-top: 25px;
@@ -110,8 +113,9 @@
     z-index: 2;
     right: 0;
     top: 0;
+    transform: translateX(100%);
     transition: 0.2s linear;
-    transform: scale(0);
+
 
     @media (min-width: $tablet-min) {
       display: none;
@@ -119,7 +123,7 @@
 
 
     &.header__menu_active {
-      transform: scale(1);
+      transform: translateX(0%);
       animation-name: slideLeft;
       animation-duration: 1s;
       animation-timing-function: linear;
@@ -127,7 +131,7 @@
     }
 
     &.header__menu_hide {
-      transform: scale(0);
+      transform: translateX(100%);
       animation-name: slideRight;
       animation-duration: 1s;
       animation-timing-function: linear;
@@ -202,5 +206,8 @@
 
   &_active-hamburger {
     display: block;
+  }
+  &_hide-body{
+    overflow: hidden;
   }
 }

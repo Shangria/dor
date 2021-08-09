@@ -102,7 +102,8 @@
 
 
   &__download {
-    display: none;
+    display: flex;
+    justify-content: center;
     @media (min-width: $desktop-min) {
       display: flex;
       justify-content: flex-end;
@@ -110,14 +111,20 @@
   }
 
   &__btn {
+    margin-top: 15px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    padding: 10px 5px 10px 25px;
+    padding: 10px 5px 10px 10px;
     background-color: $accentColor;
     color: $light;
-    font-size: 21.5px;
+    font-size: 16px;
     font-weight: 900;
+    @media (min-width: $desktop-min) {
+      margin-top: 0;
+      font-size: 21.5px;
+      padding: 10px 5px 10px 25px;
+    }
   }
 
   &__img-download {

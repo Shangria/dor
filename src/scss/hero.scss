@@ -1,4 +1,5 @@
 .hero {
+  padding-top: 20px;
   position: relative;
   width: 100%;
   background-image: linear-gradient(to top, #2f2f31, #222224, #161618);
@@ -7,17 +8,14 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  @media (min-width: $tablet-min) {
-    padding: 80px 15px;
-  }
 
   &__container {
     flex-direction: column-reverse;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 210px;
 
+    padding: 0 15px;
     @media (min-width: $tablet-min) {
       flex-direction: row;
     }
