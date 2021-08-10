@@ -1,5 +1,5 @@
 <?
-if ( (isset($_POST['user-name']) && $_POST['user-name']!="") && (isset($_POST['user-tel']) && $_POST['user-tel']!="") && (isset($_POST['user-email']) && $_POST['user-email']!="")&& (isset($_POST['user_message']) && $_POST['user_message']!="")  ){
+if ( (isset($_POST['user-name']) && $_POST['user-name']!="") && (isset($_POST['user-tel']) && $_POST['user-tel']!="") && (isset($_POST['user-email']) && $_POST['user-email']!="")&& (isset($_POST['user_message']) && ($_POST['user_message']==="" || $_POST['user_message']!=""))  ){
         $to = 'dor.aharonoff@gmail.com';
         $subject = 'Contact message from dor-landingpage site';
         $message = '
@@ -35,7 +35,7 @@ if ( (isset($_POST['user-name']) && $_POST['user-name']!="") && (isset($_POST['u
 								            <p>Name: '.$_POST['user-name'].'</p>
 								            <p>Phone: '.$_POST['user-tel'].'</p>
 								            <p>Email: '.$_POST['user-email'].'</p>    
-								            <p>Email: '.$_POST['user_message'].'</p>
+								            <p>Message: '.$_POST['user_message'].'</p>
 										</td>
 									</tr>
 								</table>
