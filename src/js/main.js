@@ -4,7 +4,7 @@
         const hamburgerMain = document.getElementById('header__hamburger-main');
         const hamburgerSub = document.getElementById('header__hamburger-sub');
         const headerMenu = document.getElementById('mobile-menu');
-        const hideBody=document.querySelector('body');
+        const hideBody = document.querySelector('body');
 
         hamburgerMain.addEventListener('click', function () {
             hamburgerMain.classList.add('header_hide-hamburger');
@@ -67,7 +67,7 @@
     window.addEventListener('load', function () {
         const links = document.querySelectorAll('.header__item a');
         const linksMobile = document.querySelectorAll('.header__mobile-item a');
-        const hideBody=document.querySelector('body');
+        const hideBody = document.querySelector('body');
 
 
         addActive(links);
@@ -253,11 +253,52 @@
 
     });
 
-    let form = document.getElementById("from");
+})();
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        let body = document.body;
-        body.className = 'submit';
-    });
+
+(function () {
+    window.addEventListener('load', function () {
+        const form = document.getElementById('from');
+
+        form.addEventListener('submit', createSubmitWindow);
+
+        function createSubmitWindow(e) {
+            e.preventDefault();
+            const modalContainer = document.getElementById('form-modal');
+            const body = document.querySelector('body');
+            body.classList.add('form_hide-body');
+
+            const modalBox = document.createElement('div');
+            modalContainer.appendChild(modalBox);
+            modalBox.classList.add('form__modal');
+            const container = document.createElement('div');
+            container.classList.add('form__modal-text');
+
+            const modalText = document.createElement('span');
+            modalBox.appendChild(modalText);
+            modalText.setAttribute('dir', 'rtl')
+            modalText.innerText = "תודה\n" +
+                "נצור קשר בהקדם";
+
+            const closeModal = document.createElement('p');
+            modalBox.appendChild(closeModal);
+            closeModal.id = 'close';
+            closeModal.innerText = 'X';
+
+
+            container.appendChild(closeModal);
+            container.appendChild(modalText);
+            modalBox.appendChild(container);
+
+            const close = document.getElementById('close');
+            close.addEventListener('click', function () {
+                modalBox.classList.add('form__modal-text_out');
+                body.classList.remove('form_hide-body');
+
+                setTimeout(function (){
+                    modalBox.remove();
+                }, 1000);
+            })
+        }
+    })
 })();
