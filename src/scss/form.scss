@@ -123,20 +123,28 @@
 
     &:nth-child(1) {
       width: 100%;
+      order: 2;
       @media (min-width: $desktop-min) {
         width: 49%;
+        order: 1;
       }
     }
 
     &:nth-child(2) {
       width: 100%;
+      order: 1;
       @media (min-width: $desktop-min) {
         width: 49%;
+        order: 2;
       }
     }
 
     &:nth-child(3) {
       width: 100%;
+      order: 3;
+    }
+    &:nth-child(5) {
+      order: 5;
     }
   }
 
@@ -148,6 +156,7 @@
     margin-bottom: 17px;
     border-bottom: 4px solid $accentColor;
     resize: none;
+    order: 4;
     @media (min-width: $desktop-min) {
       margin-top: -4px;
       padding: 6px;
